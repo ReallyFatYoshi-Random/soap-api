@@ -2,7 +2,7 @@
 > To run this application you'll need PHP, Git and Composer installed on your machine.
 
 # Soap API 🧼
-
+Soap API Server created in PHP.
 
 ## Run project locally
 Open your terminal.
