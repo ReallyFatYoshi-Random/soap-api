@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://localhost:3000" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="SoapApi.Library.BookCase" targetNamespace="http://localhost:3000">
+  <types>
+    <xsd:schema targetNamespace="http://localhost:3000">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </xsd:schema>
+  </types>
+  <portType name="SoapApi.Library.BookCasePort">
+    <operation name="pickRandomDescription">
+      <input message="tns:pickRandomDescriptionIn"/>
+      <output message="tns:pickRandomDescriptionOut"/>
+    </operation>
+    <operation name="pickRandomTitle">
+      <input message="tns:pickRandomTitleIn"/>
+      <output message="tns:pickRandomTitleOut"/>
+    </operation>
+    <operation name="pickRandomAuthor">
+      <input message="tns:pickRandomAuthorIn"/>
+      <output message="tns:pickRandomAuthorOut"/>
+    </operation>
+    <operation name="pickRandomBooks">
+      <input message="tns:pickRandomBooksIn"/>
+      <output message="tns:pickRandomBooksOut"/>
+    </operation>
+  </portType>
+  <binding name="SoapApi.Library.BookCaseBinding" type="tns:SoapApi.Library.BookCasePort">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="pickRandomDescription">
+      <soap:operation soapAction="http://localhost:3000#pickRandomDescription"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </output>
+    </operation>
+    <operation name="pickRandomTitle">
+      <soap:operation soapAction="http://localhost:3000#pickRandomTitle"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </output>
+    </operation>
+    <operation name="pickRandomAuthor">
+      <soap:operation soapAction="http://localhost:3000#pickRandomAuthor"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </output>
+    </operation>
+    <operation name="pickRandomBooks">
+      <soap:operation soapAction="http://localhost:3000#pickRandomBooks"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:3000"/>
+      </output>
+    </operation>
+  </binding>
+  <message name="pickRandomDescriptionIn"/>
+  <message name="pickRandomDescriptionOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="pickRandomTitleIn"/>
+  <message name="pickRandomTitleOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="pickRandomAuthorIn"/>
+  <message name="pickRandomAuthorOut">
+    <part name="return" type="xsd:string"/>
+  </message>
+  <message name="pickRandomBooksIn">
+    <part name="amount" type="xsd:int"/>
+  </message>
+  <message name="pickRandomBooksOut">
+    <part name="return" type="soap-enc:Array"/>
+  </message>
+  <service name="SoapApi.Library.BookCaseService">
+    <port name="SoapApi.Library.BookCasePort" binding="tns:SoapApi.Library.BookCaseBinding">
+      <soap:address location="http://localhost:3000"/>
+    </port>
+  </service>
+</definitions>
